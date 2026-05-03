@@ -1,0 +1,521 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(
+    circle at 50% 15%, 
+    #ffe1dc 0%, 
+    #ffffff 30%, 
+    #ffffff 50%, 
+    #ffffff 70%, 
+    #ffffff 85%,
+    #ffffff 100%
+);
+}
+
+/* About Section */
+.about {
+    width: 55%;
+    max-width: 1100px;
+    margin: 130px auto;
+}
+
+/* Typography */
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FA8072;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* ===== ABOUT ANIMATION BASE ===== */
+
+.about h1,
+.about p,
+.about .polaroid {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Judul turun dari atas */
+.about h1 {
+  transform: translateY(-40px);
+}
+
+/* Paragraf naik dari bawah */
+.about p {
+  transform: translateY(40px);
+      text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Polaroid scale saja (jangan pakai transform di sini) */
+.about .polaroid {
+  scale: 0.8;
+}
+
+/* Saat aktif */
+.about h1.show,
+.about p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about .polaroid.show {
+  opacity: 1;
+  scale: 1;
+}
+
+
+
+/* Gallery */
+.gallery {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.polaroid {
+    background: #ffffff;
+    padding: 15px 15px 40px;
+    width: 150px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: rotate(-3deg);
+    transition: 0.3s ease;
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(4) {
+    transform: rotate(3deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .about {
+        width: 75%;
+        margin: 70px auto;
+    }
+
+    .polaroid {
+        width: 160px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    body {
+        background: radial-gradient(
+            circle at 50% 15%, 
+            #ffe1dc 0%, 
+            #fff8f6 40%, 
+            #ffffff 100%
+        );
+    }
+
+    .about {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .gallery {
+        margin-top: 60px;
+        gap: 20px;
+    }
+
+    .polaroid {
+        width: 45%;          /* jadi 2 kolom */
+        transform: rotate(0deg); /* biar rapi di mobile */
+    }
+
+    .polaroid img {
+        height: 120px;
+    }
+}
+
+
+/* HP sangat kecil */
+@media (max-width: 480px) {
+
+    .polaroid {
+        width: 100%;       /* jadi 1 kolom */
+        max-width: 260px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* ===== TOOLS SECTION ===== */
+
+.tools{
+   width: 55%;
+    max-width: 1100px;
+    margin: 130px auto;
+  text-align: center;
+}
+
+.tools-title{
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: #FA8072;
+  font-weight: 600;
+}
+
+/* Wrapper */
+.tools-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Track logo tepat di bawah judul */
+.tools-track{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: none;
+}
+
+/* Kotak per logo */
+.tool-box{
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 4px solid #FA8072;
+  border-radius: 20px;
+  background: #ffffff;
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Logo */
+.tool-box img{
+  width: 100%;
+  height: 100%;
+ object-fit: cover;
+padding: 0;
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 1024px){
+  .tools{
+    width: 75%;
+  }
+
+  .tool-box{
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 768px){
+  .tools{
+    width: 90%;
+    margin: 90px auto;
+  }
+
+  .tools-title{
+    font-size: 26px;
+  }
+
+  .tool-box{
+    width: 75px;
+    height: 75px;
+  }
+
+  .tools-track{
+    gap: 15px;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 480px){
+  .tool-box{
+    width: 65px;
+    height: 65px;
+  }
+
+  .tools-track{
+    gap: 12px;
+    max-width: 300px;
+  }
+}
+
+/* ============================= */
+/* EXPERTISE SECTION */
+/* ============================= */
+
+.expertise{
+  width: 55%;
+  max-width: 1100px;
+  margin: 130px auto;
+  text-align: center;
+}
+
+.expertise-title{
+  font-size: 32px;
+  margin-bottom: 70px;
+  font-weight: 600;
+  color: #FA8072;
+}
+
+/* Container */
+.expertise-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Box */
+.expertise-box{
+  flex: 1;
+  padding: 40px;
+  border-radius: 25px;
+  background: radial-gradient(
+    circle at top,
+    #fff0ec 0%,
+    #ffffff 70%
+  );
+  transition: all 0.4s ease;
+  
+}
+
+.expertise-box h3{
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #FA8072;
+}
+
+/* List */
+.expertise-box ul{
+  list-style: none;
+  padding: 0;
+}
+
+.expertise-box li{
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #444;
+  transition: all 0.3s ease;
+  text-align: left;
+
+    position: relative;
+  padding-left: 45px;   /* ruang untuk checkbox */
+
+}
+
+/* Kotak pink */
+.expertise-box li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #f7b0a8;
+  border-radius: 6px;
+}
+
+/* Centang */
+.expertise-box li::after{
+  content: "✔";
+  position: absolute;
+  left: 6px;
+  top: 2px;   /* ini bikin sedikit keluar */
+  font-size: 18px;
+  color: #FA8072;
+}
+
+/* Hover effect */
+.expertise-box:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(250,128,114,0.14);
+}
+
+.expertise-box li:hover{
+  color: #FA8072;
+  transform: translateX(5px);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 1024px){
+  .expertise{
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px){
+  .expertise{
+    width: 90%;
+    margin: 90px auto;
+  }
+
+  .expertise-title{
+    font-size: 26px;
+  }
+
+  .expertise-container{
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .expertise-box{
+    padding: 30px;
+  }
+}
+
+/* ============================= */
+/* CERTIFICATION SECTION */
+/* ============================= */
+
+.certification{
+  width: 80%;
+  max-width: 1100px;
+  margin: 130px auto;
+  text-align: center;
+}
+
+.certification-title{
+  font-size: 32px;
+  margin-bottom: 70px;
+  font-weight: 600;
+  color: #FA8072;
+}
+
+/* Container */
+.certification-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Card */
+.certificate-card{
+  flex: 1;
+  background: #ffffff;
+  border-radius: 25px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid #fff0ec;
+}
+
+/* Image */
+.certificate-card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Info */
+.certificate-info{
+  padding: 25px;
+}
+
+.certificate-info h3{
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #FA8072;
+  font-weight: 600;
+}
+
+.certificate-info p{
+  font-size: 14px;
+  color: #555;
+}
+
+/* Hover */
+.certificate-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(250,128,114,0.14);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 1024px){
+  .certification{
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px){
+  .certification{
+    width: 90%;
+    margin: 90px auto;
+  }
+
+  .certification-title{
+    font-size: 26px;
+  }
+
+  .certification-container{
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .certificate-card img{
+    height: 180px;
+  }
+}
+
+
+
+
